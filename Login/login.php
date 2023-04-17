@@ -5,18 +5,26 @@
         fwrite($arquivo, 'Senha: ' . $_POST['Senha'] . "\n");
         fclose($arquivo);
     }
-    function a(){
-        g
-    $Lemail = $_POST['LogEmail'];    
-    $Lsenha = $_POST['LogSenha'];
-    if($Lemail = $_POST['Email'] &&  $Lsenha = $_POST['Senha']){
-        echo "foi";
-    }
-} 
-if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['login']))
-{
-a();
-}
+    $emailLogin = $_POST['LogEmail'];
+    $senhaLogin = $_POST['LogSenha)'];
+    function Result($LogEmail, $LogSenha){
+        
+       
+            $arquivo = 'dados.txt'; 
+            if(file_exists($arquivo)){
+                $arq = fopen($arquivo , 'r');
+    
+                $texto = fread($arq , filesize($arquivo));
+    
+                if(isset($Logemail) && isset($senhaLogin)){
+                    if(str_contains($texto , $emailLogin) && str_contains($texto , $senhaLogin)){
+                        echo $_POST['LogEmail'] . " logado com sucesso.";    
+                    }
+  }
+  if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['login']))
+  {
+  Result();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +42,7 @@ a();
     <div class="row justify-content-md-center">
     <div class="col-md-auto">
     <div class="col-auto">
-                <label for="LoginEmail" class="col-form-label">Email</label>
+                <label for="LogEmail" class="col-form-label">Email</label>
             </div>
             <div class="col-auto">
                 <input type="email" id="LogEmail" name="LogEmail" class="form-control" required>
